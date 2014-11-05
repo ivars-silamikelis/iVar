@@ -67,7 +67,9 @@ while (<$vcfh>){
 			print $output_handle $_,"\n";
 		}
 	} else {
-		print $output_handle $_,"\n";
+		unless ($match){
+			print $output_handle $_,"\n";
+		}
 	}
 }
 close $vcfh;

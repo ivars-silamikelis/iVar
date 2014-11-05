@@ -62,13 +62,14 @@ while (<$vcfh>){
 	my @fields=split("\t",$_);
 	die "Too large column number\n" if ($column-1) > $#fields;
 	my $rs_field = $fields[$column-1];
-	if (grep {$_ eq $rs_field} @rs_data);
+	if (grep {$_ eq $rs_field} @rs_data){
 		if ($match){
 			print $output_handle $_,"\n";
 		}
-
 	} else {
-		print $output_handle $_,"\n";
+		unless ($match){
+			print $output_handle $_,"\n";
+		}
 	}
 }
 close $vcfh;
