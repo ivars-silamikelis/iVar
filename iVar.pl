@@ -13,30 +13,37 @@ my $output_handle = \*STDOUT;
 my $column = 3;
 my $message = <<'END_MESSAGE';
 Usage:
-	perl filter_rs.pl -i <VCF> --rs <RS>
+	perl iVar.pl -i <VCF> -rs <RS>
 	where 
 	<VCF> is your data in vcf file format
-	<RS> is list
+	<RS> is a newline seperated list containing rs IDs
+
+	Available options:	
+	-h,--help = print this message
+	-o,--out = send output to file [STDOUT]
+	-m,--match = retain records that matches ids in <RS> [False]
+	-c,--column = provide the column number for rs id in <VCF> file [3]
 	
 		
 END_MESSAGE
 
-GetOptions( "rs=s" => \$rs_file, "i|vcf=s"=> \$vcf_file, "m|match" => \$match, "h|help" => \$help_message, "o|out=s" => \$outname, "c|column" => \$column);
+GetOptions( "rs=s" => \$rs_file, "i|vcf=s"=> \$vcf_file, "m|match" => \$match, "h|help" => \$help_message, "o|out=s" => \$outname, "c|column=i" => \$column);
 
-unless ($rs_file && $vcf_file){
-	print STDERR "Specify input and rs list\n";
-	exit;
-}
+
 if ($help_message){
 	
 	print $message;
+	exit;
+}
+unless ($rs_file && $vcf_file){
+	print STDERR "Specify input and rs list\n";
 	exit;
 }
 if ($outname){
 	open my $fh, ">", $outname or die "Can't write to $outname\n";
 	$output_handle = $fh;
 }
-print STDERR "Opening data\n";
+#print STDERR "Opening data\n";
 open my $rsfh, "<", $rs_file or die "$rs_file doesn't exist\n";
 while (<$rsfh>){
 	chomp($_);
@@ -55,10 +62,12 @@ while (<$vcfh>){
 	my @fields=split("\t",$_);
 	die "Too large column number\n" if ($column-1) > $#fields;
 	my $rs_field = $fields[$column-1];
-	if ($match){
-		print $output_handle $_,"\n" if (grep {$_ eq $rs_field} @rs_data);
+	if (grep {$_ eq $rs_field} @rs_data){
+		if ($match){
+			print $output_handle $_,"\n";
+		}
 	} else {
-		print $output_handle $_,"\n" if (grep {$_ ne $rs_field} @rs_data);
+		print $output_handle $_,"\n";
 	}
 }
 close $vcfh;
