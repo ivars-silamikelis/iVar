@@ -74,5 +74,5 @@ while (<$vcfh>){
 }
 close $vcfh;
 close $output_handle;
-
+exit;
 #print $vcf_file,"\t", $rs_file,"\n";
