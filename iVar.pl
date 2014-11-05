@@ -11,6 +11,7 @@ my $help_message=0;
 my $outname;
 my $output_handle = \*STDOUT;
 my $column = 3;
+# usage message
 my $message = <<'END_MESSAGE';
 Usage:
 	perl iVar.pl -i <VCF> -rs <RS>
@@ -29,7 +30,7 @@ END_MESSAGE
 
 GetOptions( "rs=s" => \$rs_file, "i|vcf=s"=> \$vcf_file, "m|match" => \$match, "h|help" => \$help_message, "o|out=s" => \$outname, "c|column=i" => \$column);
 
-
+#check for help flag and if input is provided 
 if ($help_message){
 	
 	print $message;
@@ -62,7 +63,7 @@ while (<$vcfh>){
 	my @fields=split("\t",$_);
 	die "Too large column number\n" if ($column-1) > $#fields;
 	my $rs_field = $fields[$column-1];
-	if (grep {$_ eq $rs_field} @rs_data){
+	if (grep {$_ eq $rs_field} @rs_data){		#print data depending whether match flag was provided
 		if ($match){
 			print $output_handle $_,"\n";
 		}
@@ -75,4 +76,3 @@ while (<$vcfh>){
 close $vcfh;
 close $output_handle;
 exit;
-#print $vcf_file,"\t", $rs_file,"\n";

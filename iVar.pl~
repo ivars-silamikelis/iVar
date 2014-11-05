@@ -11,6 +11,7 @@ my $help_message=0;
 my $outname;
 my $output_handle = \*STDOUT;
 my $column = 3;
+# usage message
 my $message = <<'END_MESSAGE';
 Usage:
 	perl iVar.pl -i <VCF> -rs <RS>
@@ -29,7 +30,7 @@ END_MESSAGE
 
 GetOptions( "rs=s" => \$rs_file, "i|vcf=s"=> \$vcf_file, "m|match" => \$match, "h|help" => \$help_message, "o|out=s" => \$outname, "c|column=i" => \$column);
 
-
+#check for help flag and if input is provided 
 if ($help_message){
 	
 	print $message;
@@ -74,5 +75,4 @@ while (<$vcfh>){
 }
 close $vcfh;
 close $output_handle;
-
-#print $vcf_file,"\t", $rs_file,"\n";
+exit;
