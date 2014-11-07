@@ -169,7 +169,7 @@ sub genotype_filter {
 						"-non_empty" => qr%\./\.%
 						);
 	for my $sample (keys %{$genotypes}){
-		die "sample name in genotype file and vcf file do not match!\nMake sure that sample names in VCF header are exactly the same as in genotype file\n" unless $sample_indexes->{$sample};
+		die "Sample name in genotype file and vcf file do not match!\nMake sure that sample names in VCF header are exactly the same as in genotype file\n" unless $sample_indexes->{$sample};
         #split data about sample in vcf file
     	my @data = split(":",$fields->[$sample_indexes->{$sample}]);
 		if (grep {$_ eq $data[0]} (@{$genotypes->{$sample}})){
