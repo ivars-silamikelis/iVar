@@ -3,7 +3,15 @@ Currently only diploid genotypes are accepted for genotype filtering.
 
 Each ID in the list must be seperated by newline (see rs.txt).
 
-To test script just type:
+Installation
+
+To install with git, type:
+
+git clone https://github.com/Ivarz/iVar
+
+cd iVar
+
+To test script, type:
 
 perl iVar.pl -i sample.vcf -rs rs.txt
 
