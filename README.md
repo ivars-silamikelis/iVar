@@ -37,15 +37,10 @@ It also accepts following genotypes:
 **het** | retain records where sample is heterozygote (-het to drop these records)
 ---|---
 **hom** | retain records where sample is homozygote (-hom to drop these records)
-
 **hom_alt** | retain records where sample is homozygote with alternative allele (-hom_alt to drop these records)
-
 **hom_ref** | retain records where sample is homozygote with reference allele (-hom_alt to drop these records)
-
 **any** | sample can have any genotype (even empty) (-any to drop these records (empty list))
-
 **empty** | sample can have only empty genotype (-empty to drop these records (same as non_empty))
-
 **non_empty** | sample can have only non empty genotype (-non_empty to drop these records (same as empty))
 
 (see genotypes.txt)
