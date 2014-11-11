@@ -1,25 +1,25 @@
+#iVar
 Filter out vcf file by a list of rs IDs and/or sample genotypes.
 Currently only diploid genotypes are accepted for genotype filtering.
 
 Each ID in the list must be seperated by newline (see rs.txt).
 
-Installation
+##Installation
 
-To install with git, type:
-
+To install with git, type in terminal:
+```bash
 git clone https://github.com/Ivarz/iVar
-
 cd iVar
-
+```
 To test script, type:
-
+```bash
 perl iVar.pl -i sample.vcf -rs rs.txt
-
+```
 or
-
+```bash
 perl iVar.pl -i sample_2.vcf -g genotypes.txt
-
-
+```
+##Usage
 To filter vcf file by sample genotypes, list of samples with their genotypes is needed.
 Format it like this:
 
