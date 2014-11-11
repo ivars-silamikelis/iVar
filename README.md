@@ -26,7 +26,7 @@ perl iVar.pl -i sample.vcf -rs rs.txt
 ```
 To keep records in vcf file named `sample.vcf` that have rs IDs specified in a list named `rs.txt` use `-m` flag:
 ```
-perl iVar.pl -i sample.vcf -rs <RS> -m
+perl iVar.pl -i sample.vcf -rs rs.txt -m
 ```
 
 To filter vcf file named `sample.vcf` by sample genotypes, list of samples with their genotypes is needed (`genotypes.txt`).
