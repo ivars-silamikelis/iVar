@@ -28,7 +28,7 @@ SampleName2:genotype1,genotype2,...,genotypeN
 SampleName3:genotype1,genotype2,...,genotypeN
 ```
 
-Where genotype1...N can have any genotype value (0/0, 0/1 etc). 
+Where `genotype1...N` can have any genotype value (0/0, 0/1 etc). 
 
 It also accepts following genotypes:
 
@@ -42,6 +42,6 @@ Genotype | Description
 **empty** | sample can have only empty genotype (-empty to drop these records (same as non_empty))
 **non_empty** | sample can have only non empty genotype (-non_empty to drop these records (same as empty))
 
-(see genotypes.txt)
+(see genotypes.txt for examples)
 
 
