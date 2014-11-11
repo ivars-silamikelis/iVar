@@ -62,7 +62,7 @@ if ($help_message){
 	exit;
 }
 unless (($rs_file or $genotype_file) && $vcf_file){
-	print STDERR "Specify input and rs or genotype list\n";
+	print STDERR "Specify input and rs or genotype list\nUse -h for more information\n";
 	exit;
 }
 if ($outname){
