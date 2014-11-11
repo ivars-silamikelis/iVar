@@ -22,13 +22,11 @@ perl iVar.pl -i sample_2.vcf -g genotypes.txt
 ##Usage
 To filter vcf file by sample genotypes, list of samples with their genotypes is needed.
 Format it like this:
-
+```
 SampleName1:genotype1,genotype2,...,genotypeN
-
 SampleName2:genotype1,genotype2,...,genotypeN
-
 SampleName3:genotype1,genotype2,...,genotypeN
-
+```
 
 Where genotype1...N can have any genotype value (0/0, 0/1 etc). 
 
