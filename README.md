@@ -20,8 +20,26 @@ or
 perl iVar.pl -i sample_2.vcf -g genotypes.txt
 ```
 ##Usage
-To filter vcf file by sample genotypes, list of samples with their genotypes is needed.
-Format it like this:
+To remove records in vcf file named `sample.vcf` that have rs IDs specified in a list named `rs.txt`:
+```
+perl iVar.pl -i sample.vcf -rs rs.txt
+```
+To keep records in vcf file named `sample.vcf` that have rs IDs specified in a list named `rs.txt` use `-m` flag:
+```
+perl iVar.pl -i sample.vcf -rs <RS> -m
+```
+
+To filter vcf file named `sample.vcf` by sample genotypes, list of samples with their genotypes is needed (`genotypes.txt`).
+```
+perl iVar.pl -i sample.vcf -g genotypes.txt
+```
+
+If there are multiple genotypes listed for one sample, then records matching any of the specified genotypes will be kept.
+
+If there are multiple samples in vcf file, then only those records where each sample matches given genotypes will be kept.
+
+
+The list of genotypes Format it like this:
 ```
 SampleName1:genotype1,genotype2,...,genotypeN
 SampleName2:genotype1,genotype2,...,genotypeN
