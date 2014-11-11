@@ -39,7 +39,7 @@ If there are multiple genotypes listed for one sample, then records matching any
 If there are multiple samples in vcf file, then only those records where each sample matches given genotypes will be kept.
 
 
-The list of genotypes Format it like this:
+The list of genotypes must be in formatted like this:
 ```
 SampleName1:genotype1,genotype2,...,genotypeN
 SampleName2:genotype1,genotype2,...,genotypeN
