@@ -35,7 +35,7 @@ Where genotype1...N can have any genotype value (0/0, 0/1 etc).
 It also accepts following genotypes:
 
 **het** | retain records where sample is heterozygote (-het to drop these records)
-
+---|---
 **hom** | retain records where sample is homozygote (-hom to drop these records)
 
 **hom_alt** | retain records where sample is homozygote with alternative allele (-hom_alt to drop these records)
