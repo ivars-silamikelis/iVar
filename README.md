@@ -8,7 +8,7 @@ Each ID in the list must be seperated by newline (see rs.txt).
 
 To install with git, type in terminal:
 ```bash
-git clone https://github.com/Ivarz/iVar
+git clone https://github.com/ivars-silamikelis/iVar
 cd iVar
 ```
 To test script, type:
